@@ -1,0 +1,32 @@
+/* Parte Mia Início */
+#containerDiscos {
+    display: flex; 
+   flex-direction: column; 
+   align-items: center;
+   width: 30%;
+}
+.disco1 {
+    background-color: aquamarine;
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+}
+.disco2 {
+    background-color: cadetblue;
+    height: 30px;
+    width: 70px;
+    border-radius: 5px;
+}
+.disco3 {
+    background-color: darkolivegreen;
+    height: 30px;
+    width: 120px;
+    border-radius: 5px;
+}
+.disco4 {
+    background-color: hotpink;
+    height: 30px;
+    width: 160px;
+    border-radius: 5px;
+}
+/* Parte Mia Final */
