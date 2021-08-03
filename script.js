@@ -1,8 +1,6 @@
-// Parte Mia Início
+// Parte Mia Início - DISCOS
 let containerDiscos = document.createElement("div");
 containerDiscos.id = 'containerDiscos';
-let body = window.document.body;
-body.appendChild(containerDiscos);
 
 function criarDiscos() {
     for (let i = 1; i <= 4; i++) { // 4 discos
@@ -13,6 +11,10 @@ function criarDiscos() {
 }
 criarDiscos();
 // Parte Mia Final
+
+
+
+// Parte Jair Início - TORRES
 const main = document.createElement("main") 
     main.classList.add("main")
     document.body.appendChild(main)
@@ -53,7 +55,13 @@ haste3.appendChild(poste3)
 const piso3 = document.createElement("div")
 piso3.classList.add("piso")
 haste3.appendChild(piso3)
+// Parte Jair Final
 
+// Parte Mia Início - CLIQUES E MOVIMENTAÇÃO DOS DISCOS
+haste.appendChild(containerDiscos); // adicionando os discos
+
+
+// Parte Mia Final
 
 
 
