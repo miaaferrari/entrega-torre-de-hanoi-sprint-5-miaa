@@ -3,32 +3,41 @@
    display: flex; 
    flex-direction: column; 
    align-items: center;
+   
    width: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 .disco1 {
     background-color: aquamarine;
     height: 25px;
     width: 35px;
-    border-radius: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
 }
 .disco2 {
     background-color: cadetblue;
     height: 25px;
     width: 55px;
-    border-radius: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
 }
 .disco3 {
     background-color: darkolivegreen;
     height: 25px;
     width: 75px;
-    border-radius: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
 }
 .disco4 {
     background-color: hotpink;
     height: 25px;
     width: 100px;
-    border-radius: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
 }
 /* Parte Mia Final */
 
@@ -59,12 +68,17 @@ body{
     width: 120px; /* ALTERAÇÃO MIA*/
     height: 300px; /* ALTERAÇÃO MIA*/
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     background-color: blue;
     margin: 5px;
     padding-bottom: 0;
     position: relative;
+}
+
+.clicked{
+    margin-bottom: 200px;
+    transition: 2.5s;
 }
 
 /* .haste2{
@@ -90,6 +104,7 @@ body{
     padding-top: 0;
     margin: 70px 50px 0 50px; /* ALTERAÇÃO MIA*/
     border-radius: 10px 10px 0 0;
+    position: absolute;
 }
 
 @media screen and (min-width: 500px) {
