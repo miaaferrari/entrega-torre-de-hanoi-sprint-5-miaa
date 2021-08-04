@@ -5,7 +5,8 @@ containerDiscos.id = 'containerDiscos';
 function criarDiscos() {
     for (let i = 1; i <= 4; i++) { // 4 discos
         let disco = document.createElement("div");
-        disco.className = `disco${i}`;
+        disco.id = `disco${i}`;
+        disco.className = 'disco';
         containerDiscos.appendChild(disco);
     }
 }
@@ -59,7 +60,34 @@ haste3.appendChild(piso3)
 
 // Parte Mia Início - CLIQUES E MOVIMENTAÇÃO DOS DISCOS
 haste.appendChild(containerDiscos); // adicionando os discos
+let discoAlvo;
+let torreAlvo;
+let allDiscs = document.querySelectorAll('div.disco');
+for (let i = 0; i < allDiscs.length; i++){
+    allDiscs[i].addEventListener('click', selecionar)
+}
 
+function selecionar(e) {
+    discoAlvo = e.currentTarget;
+
+    return discoAlvo;
+}
+
+let torres = document.querySelectorAll('div.haste');
+for (let j = 0; j < torres.length; j++) {
+    torres[j].addEventListener('click', movimentar) 
+}
+
+function movimentar(e) {
+    torreAlvo = e.currentTarget;
+    if (torreAlvo.length === 0) {
+        torreAlvo.appendChild(discoAlvo);
+    } 
+    if (torreAlvo > 1) {
+        
+    }
+
+}
 
 // Parte Mia Final
 

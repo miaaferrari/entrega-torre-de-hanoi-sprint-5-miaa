@@ -6,25 +6,25 @@
    width: 100px;
     margin-bottom: 30px;
 }
-.disco1 {
+#disco1 {
     background-color: aquamarine;
     height: 25px;
     width: 35px;
     border-radius: 5px;
 }
-.disco2 {
+#disco2 {
     background-color: cadetblue;
     height: 25px;
     width: 55px;
     border-radius: 5px;
 }
-.disco3 {
+#disco3 {
     background-color: darkolivegreen;
     height: 25px;
     width: 75px;
     border-radius: 5px;
 }
-.disco4 {
+#disco4 {
     background-color: hotpink;
     height: 25px;
     width: 100px;
@@ -109,19 +109,19 @@ body{
     #containerDiscos {
         width: 150px;
      }
-     .disco1 {
+     #disco1 {
          height: 30px;
          width: 75px;
      }
-     .disco2 {
+     #disco2 {
          height: 30px;
          width: 100px;
      }
-     .disco3 {
+     #disco3 {
          height: 30px;
          width: 125px;
      }
-     .disco4 {
+     #disco4 {
          height: 30px;
          width: 150px;
      }
