@@ -120,6 +120,27 @@ container3.addEventListener("click", e =>{
         container2.removeChild(actualClick)
     }
 })
+
+// function myFunction() {
+//     var x, i;
+//     x = document.querySelectorAll(".disco");
+//     for (i = 0; i < x.length; i++) {
+//       x[i].style.backgroundColor = "red";
+//     }
+//   }
+
+// let cotadorDiscos = document.querySelectorAll(".haste3")
+
+// console.log(cotadorDiscos.length)
+
+const parentList = document.getElementById("haste3")
+const listChildren = parentList.children
+
+console.log(listChildren.length)
+
+if (listChildren.length === 5){
+    console.log("vitoria")
+}
   
 
 
