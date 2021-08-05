@@ -1,0 +1,144 @@
+/* Parte Mia Início */
+#containerDiscos {
+   display: flex; 
+   flex-direction: column; 
+   align-items: center;
+   
+   width: 100px;
+    margin-bottom: 0;
+}
+.disco1 {
+    background-color: aquamarine;
+    height: 25px;
+    width: 35px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+.disco2 {
+    background-color: cadetblue;
+    height: 25px;
+    width: 55px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+.disco3 {
+    background-color: darkolivegreen;
+    height: 25px;
+    width: 75px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+.disco4 {
+    background-color: hotpink;
+    height: 25px;
+    width: 100px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+/* Parte Mia Final */
+
+body{
+    /* display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    ALTERAÇÃO PARA ENCAIXE DOS DISCOS */
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    background-color: burlywood;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* ALTERAÇÃO MIA*/
+    /* align-items: flex-start;
+    justify-content: flex-start; */
+        /* width: 100%;
+        display: flex;
+        margin-top: 20px;
+        ALTERAÇÃO PARA ENCAIXE DOS DISCOS     
+        */
+}
+
+.haste{
+    width: 120px; /* ALTERAÇÃO MIA*/
+    height: 300px; /* ALTERAÇÃO MIA*/
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: blue;
+    margin: 5px;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.clicked{
+    margin-bottom: 200px;
+    transition: 2.5s;
+}
+
+/* .haste2{
+    width: 30%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    margin: 30px;
+} */
+
+.piso{
+    width: 100%;
+    background-color: black;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+.poste{
+    height: 200px; /* ALTERAÇÃO MIA*/
+    width: 20px; /* ALTERAÇÃO MIA*/
+    background-color: black;
+    padding-top: 0;
+    margin: 70px 50px 0 50px; /* ALTERAÇÃO MIA*/
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+}
+
+@media screen and (min-width: 500px) {
+    .haste{
+        width: 250px; /* ALTERAÇÃO MIA*/
+        height: 350px; /* ALTERAÇÃO MIA*/
+        margin: 20px;
+    }
+    .poste{
+        height: 250px; /* ALTERAÇÃO MIA*/
+        width: 30px; /* ALTERAÇÃO MIA*/
+        background-color: black;
+        padding-top: 0;
+        margin: 70px 50px 0 50px; /* ALTERAÇÃO MIA*/
+        border-radius: 10px 10px 0 0;
+    }
+    #containerDiscos {
+        width: 150px;
+     }
+     .disco1 {
+         height: 30px;
+         width: 75px;
+     }
+     .disco2 {
+         height: 30px;
+         width: 100px;
+     }
+     .disco3 {
+         height: 30px;
+         width: 125px;
+     }
+     .disco4 {
+         height: 30px;
+         width: 150px;
+     }
+
+}
