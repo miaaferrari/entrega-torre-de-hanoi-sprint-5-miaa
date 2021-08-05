@@ -121,6 +121,44 @@ container3.addEventListener("click", e =>{
     }
 })
 
+// let discoAlvo;
+// let torreAlvo;
+// let allDiscs = document.querySelectorAll('div.disco');
+// for (let i = 0; i < allDiscs.length; i++){
+//     allDiscs[i].addEventListener('click', selecionar)
+// }
+
+// function selecionar(e) {
+//     discoAlvo = e.currentTarget;
+
+//     return discoAlvo;
+// }
+
+// let torres = document.querySelectorAll('div.haste');
+// for (let j = 0; j < torres.length; j++) {
+//     torres[j].addEventListener('click', movimentar) 
+// }
+
+// function movimentar(e) {
+//     torreAlvo = e.currentTarget;
+//     if (torreAlvo.length === 0) {
+//         torreAlvo.appendChild(discoAlvo);
+//     } 
+//     if (torreAlvo > 1) {
+        
+//     }
+
+// }
+
+const parentList = document.getElementById("haste3")
+const listChildren = parentList.children
+
+console.log(listChildren.length)
+
+if (listChildren.length === 5){
+    console.log("vitoria")
+}
+
 // function myFunction() {
 //     var x, i;
 //     x = document.querySelectorAll(".disco");
@@ -132,15 +170,13 @@ container3.addEventListener("click", e =>{
 // let cotadorDiscos = document.querySelectorAll(".haste3")
 
 // console.log(cotadorDiscos.length)
-
-const parentList = document.getElementById("haste3")
-const listChildren = parentList.children
-
-console.log(listChildren.length)
-
-if (listChildren.length === 5){
-    console.log("vitoria")
-}
+const boxStorage = document.getElementById("boxStorage");
+const buttonReset = document.getElementById("buttonReset");
+    buttonReset.addEventListener("click", () => {
+        
+            window.location.reload();
+          
+});
   
 
 
