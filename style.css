@@ -1,43 +1,48 @@
 /* Parte Mia Início */
-#containerDiscos {
+#containerDiscos1, #containerDiscos2, #containerDiscos3 {
    display: flex; 
-   flex-direction: column; 
+   flex-direction: column-reverse; 
    align-items: center;
    width: 100px;
-    margin-bottom: 30px;
+   height: 120px;
+   margin-bottom: 0;
 }
+
+.disco {
+    pointer-events: none;
+}
+
 #disco1 {
     background-color: aquamarine;
     height: 25px;
     width: 35px;
-    border-radius: 5px;
+    border-radius: 15px;
+    z-index: 2;
 }
 #disco2 {
     background-color: cadetblue;
     height: 25px;
     width: 55px;
-    border-radius: 5px;
+    border-radius: 15px;
+    z-index: 2;
 }
 #disco3 {
     background-color: darkolivegreen;
     height: 25px;
     width: 75px;
-    border-radius: 5px;
+    border-radius: 15px;
+    z-index: 2;
 }
 #disco4 {
     background-color: hotpink;
     height: 25px;
     width: 100px;
-    border-radius: 5px;
+    border-radius: 15px;
+    z-index: 2;
 }
 /* Parte Mia Final */
 
 body{
-    /* display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start; 
-    ALTERAÇÃO PARA ENCAIXE DOS DISCOS */
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     background-color: burlywood;
 }
@@ -45,36 +50,26 @@ body{
 .main{
     display: flex;
     flex-direction: row;
-    justify-content: center; /* ALTERAÇÃO MIA*/
-    /* align-items: flex-start;
-    justify-content: flex-start; */
-        /* width: 100%;
-        display: flex;
-        margin-top: 20px;
-        ALTERAÇÃO PARA ENCAIXE DOS DISCOS     
-        */
+    justify-content: center; 
 }
 
 .haste{
-    width: 120px; /* ALTERAÇÃO MIA*/
-    height: 300px; /* ALTERAÇÃO MIA*/
+    width: 120px; 
+    height: 300px; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     background-color: blue;
     margin: 5px;
     padding-bottom: 0;
     position: relative;
+    pointer-events: none;
 }
 
-/* .haste2{
-    width: 30%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    background-color: red;
-    margin: 30px;
-} */
+.clicked{
+    margin-bottom: 200px;
+    transition: 2.5s;
+}
 
 .piso{
     width: 100%;
@@ -84,29 +79,32 @@ body{
     bottom: 0;
 }
 .poste{
-    height: 200px; /* ALTERAÇÃO MIA*/
-    width: 20px; /* ALTERAÇÃO MIA*/
+    height: 200px; 
+    width: 20px; 
     background-color: black;
     padding-top: 0;
-    margin: 70px 50px 0 50px; /* ALTERAÇÃO MIA*/
+    margin: 70px 50px 0 50px; 
     border-radius: 10px 10px 0 0;
+    position: absolute;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 @media screen and (min-width: 500px) {
     .haste{
-        width: 250px; /* ALTERAÇÃO MIA*/
-        height: 350px; /* ALTERAÇÃO MIA*/
+        width: 250px; 
+        height: 350px; 
         margin: 20px;
     }
     .poste{
-        height: 250px; /* ALTERAÇÃO MIA*/
-        width: 30px; /* ALTERAÇÃO MIA*/
+        height: 250px; 
+        width: 30px; 
         background-color: black;
         padding-top: 0;
-        margin: 70px 50px 0 50px; /* ALTERAÇÃO MIA*/
+        margin: 70px 50px 0 50px; 
         border-radius: 10px 10px 0 0;
     }
-    #containerDiscos {
+    #containerDiscos1, #containerDiscos2, #containerDiscos3 {
         width: 150px;
      }
      #disco1 {

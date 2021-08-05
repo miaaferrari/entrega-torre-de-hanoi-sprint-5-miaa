@@ -1,13 +1,18 @@
 // Parte Mia Início - DISCOS
-let containerDiscos = document.createElement("div");
-containerDiscos.id = 'containerDiscos';
+alert('Olá, bem-vindo! Clique nas torres para movimentar os discos.')
+let containerDiscos1 = document.createElement("div");
+containerDiscos1.id = 'containerDiscos1';
+let containerDiscos2 = document.createElement("div");
+containerDiscos2.id = 'containerDiscos2';
+let containerDiscos3 = document.createElement("div");
+containerDiscos3.id = 'containerDiscos3';
 
 function criarDiscos() {
-    for (let i = 1; i <= 4; i++) { // 4 discos
-        let disco = document.createElement("div");
-        disco.id = `disco${i}`;
+    for (let i = 4; i >= 1; i--) { // 4 discos
+        const disco = document.createElement("div");
         disco.className = 'disco';
-        containerDiscos.appendChild(disco);
+        disco.id = `disco${i}`
+        containerDiscos1.appendChild(disco);
     }
 }
 criarDiscos();
@@ -16,88 +21,96 @@ criarDiscos();
 
 
 // Parte Jair Início - TORRES
-const main = document.createElement("main") 
-    main.classList.add("main")
-    document.body.appendChild(main)
-                
+const main = document.createElement("main");
+main.classList.add("main");
+main.id = 'data-id';
+document.body.appendChild(main);
 
-const haste = document.createElement("div")
-haste.classList.add("haste")
-main.appendChild(haste)
+const haste = document.createElement("div");
+haste.classList.add("haste");
+haste.id = 'haste1';
+haste.appendChild(containerDiscos1);
+main.appendChild(haste);
 
-const poste = document.createElement("div")
-poste.classList.add("poste")
-haste.appendChild(poste)
+const poste = document.createElement("div");
+poste.classList.add("poste");
+haste.appendChild(poste);
 
-const piso = document.createElement("div")
-piso.classList.add("piso")
-haste.appendChild(piso)
+const haste2 = document.createElement("div");
+haste2.classList.add("haste");
+haste2.id = 'haste2';
+haste2.appendChild(containerDiscos2);
+main.appendChild(haste2);
 
-const haste2 = document.createElement("div")
-haste2.classList.add("haste")
-main.appendChild(haste2)
+const poste2 = document.createElement("div");
+poste2.classList.add("poste");
+haste2.appendChild(poste2);
 
-const poste2 = document.createElement("div")
-poste2.classList.add("poste")
-haste2.appendChild(poste2)
+const haste3 = document.createElement("div");
+haste3.classList.add("haste");
+haste3.id = 'haste3';
+haste3.appendChild(containerDiscos3);
+main.appendChild(haste3);
 
-const piso2 = document.createElement("div")
-piso2.classList.add("piso")
-haste2.appendChild(piso2)
+const poste3 = document.createElement("div");
+poste3.classList.add("poste");
+poste3.id = 'final';
+haste3.appendChild(poste3);
 
-const haste3 = document.createElement("div")
-haste3.classList.add("haste")
-main.appendChild(haste3)
-
-const poste3 = document.createElement("div")
-poste3.classList.add("poste")
-haste3.appendChild(poste3)
-
-const piso3 = document.createElement("div")
-piso3.classList.add("piso")
-haste3.appendChild(piso3)
 // Parte Jair Final
 
-// Parte Mia Início - CLIQUES E MOVIMENTAÇÃO DOS DISCOS
-haste.appendChild(containerDiscos); // adicionando os discos
-let discoAlvo;
-let torreAlvo;
-let allDiscs = document.querySelectorAll('div.disco');
-for (let i = 0; i < allDiscs.length; i++){
-    allDiscs[i].addEventListener('click', selecionar)
+let ultimoDisco;
+let disco;
+let segurando;
+let postes = document.getElementsByClassName('poste');
+console.log(postes);
+for (let i = 0; i < postes.length; i++) {
+    postes[i].addEventListener("click", moverDisco)
+      
 }
 
-function selecionar(e) {
-    discoAlvo = e.currentTarget;
-
-    return discoAlvo;
-}
-
-let torres = document.querySelectorAll('div.haste');
-for (let j = 0; j < torres.length; j++) {
-    torres[j].addEventListener('click', movimentar) 
-}
-
-function movimentar(e) {
-    torreAlvo = e.currentTarget;
-    if (torreAlvo.length === 0) {
-        torreAlvo.appendChild(discoAlvo);
-    } 
-    if (torreAlvo > 1) {
-        
+function moverDisco(e) {
+    let clique = e.target;
+    if (segurando === true) {
+        escolherTorre(clique);
+    } else {
+        console.log(ultimoDisco);
+        pegarDisco(clique);
     }
-
 }
 
-// Parte Mia Final
+function pegarDisco(clique) {
+    let torreAtual = clique.previousElementSibling;
+    if (torreAtual !== null){
+        segurando = true;
+        disco = clique.previousElementSibling.lastElementChild;
+    }
+    console.log(disco);
+}
 
 
+function vitoria(clique) {
+    let win = document.getElementById('final');
+    let disc = document.querySelectorAll('disco').length;
+    console.log(disc)
+    if (document.querySelectorAll('#containerDiscos3 div').length === 4){
+        alert('Parabéns! Você Ganhou');
+        location.reload();
+    }
+}
 
-
-
-
-
-
-
-
+function escolherTorre(clique) {
+    ultimoDisco = clique.previousElementSibling.lastElementChild;
+    let torreClicada = clique.previousElementSibling;
+    console.log(torreClicada.lastElementChild)
+   if (torreClicada.lastElementChild === null){
+       
+       clique.previousElementSibling.appendChild(disco);
+    } else if (disco.clientWidth < ultimoDisco.clientWidth) {
+        clique.previousElementSibling.appendChild(disco);
+   } 
+    segurando = false;
+    console.log(clique.previousElementSibling.lastElementChild)
+    vitoria(clique);
+}
 
