@@ -1,127 +1,24 @@
-/* Parte Mia Início */
-#containerDiscos1, #containerDiscos2, #containerDiscos3 {
-   display: flex; 
-   flex-direction: column-reverse; 
-   align-items: center;
-   width: 100px;
-   height: 120px;
-   margin-bottom: 0;
-}
-
-.disco {
-    pointer-events: none;
-}
-
-#disco1 {
-    background-color: aquamarine;
-    height: 25px;
-    width: 35px;
-    border-radius: 15px;
-    z-index: 2;
-}
-#disco2 {
-    background-color: cadetblue;
-    height: 25px;
-    width: 55px;
-    border-radius: 15px;
-    z-index: 2;
-}
-#disco3 {
-    background-color: darkolivegreen;
-    height: 25px;
-    width: 75px;
-    border-radius: 15px;
-    z-index: 2;
-}
-#disco4 {
-    background-color: hotpink;
-    height: 25px;
-    width: 100px;
-    border-radius: 15px;
-    z-index: 2;
-}
-/* Parte Mia Final */
-
-body{
-    font-family: 'Lato', Arial, Helvetica, sans-serif;
-    background-color: burlywood;
-}
-
-.main{
+.container{
+    border: 2px solid black;
+    min-width: 50vw;
+    height: 500px;
     display: flex;
-    flex-direction: row;
-    justify-content: center; 
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
-.haste{
-    width: 120px; 
-    height: 300px; 
+.tower{
+    background-color: black;
+    height: 300px;
+    width: 15px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    background-color: blue;
-    margin: 5px;
-    padding-bottom: 0;
-    position: relative;
-    pointer-events: none;
+
+
 }
 
-.clicked{
-    margin-bottom: 200px;
-    transition: 2.5s;
-}
-
-.piso{
-    width: 100%;
-    background-color: black;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-}
-.poste{
-    height: 200px; 
-    width: 20px; 
-    background-color: black;
-    padding-top: 0;
-    margin: 70px 50px 0 50px; 
-    border-radius: 10px 10px 0 0;
-    position: absolute;
-    cursor: pointer;
-    pointer-events: all;
-}
-
-@media screen and (min-width: 500px) {
-    .haste{
-        width: 250px; 
-        height: 350px; 
-        margin: 20px;
-    }
-    .poste{
-        height: 250px; 
-        width: 30px; 
-        background-color: black;
-        padding-top: 0;
-        margin: 70px 50px 0 50px; 
-        border-radius: 10px 10px 0 0;
-    }
-    #containerDiscos1, #containerDiscos2, #containerDiscos3 {
-        width: 150px;
-     }
-     #disco1 {
-         height: 30px;
-         width: 75px;
-     }
-     #disco2 {
-         height: 30px;
-         width: 100px;
-     }
-     #disco3 {
-         height: 30px;
-         width: 125px;
-     }
-     #disco4 {
-         height: 30px;
-         width: 150px;
-     }
-
+.disc{
+    height: 20px;
+    border-radius: 5px;
 }
