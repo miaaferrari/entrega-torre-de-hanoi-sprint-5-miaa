@@ -1,116 +1,79 @@
-// Parte Mia Início - DISCOS
-alert('Olá, bem-vindo! Clique nas torres para movimentar os discos.')
-let containerDiscos1 = document.createElement("div");
-containerDiscos1.id = 'containerDiscos1';
-let containerDiscos2 = document.createElement("div");
-containerDiscos2.id = 'containerDiscos2';
-let containerDiscos3 = document.createElement("div");
-containerDiscos3.id = 'containerDiscos3';
 
-function criarDiscos() {
-    for (let i = 4; i >= 1; i--) { // 4 discos
-        const disco = document.createElement("div");
-        disco.className = 'disco';
-        disco.id = `disco${i}`
-        containerDiscos1.appendChild(disco);
-    }
-}
-criarDiscos();
-// Parte Mia Final
+const createDisc = () => {
+    const towers = document.getElementsByClassName('tower');
+    const colors = ['#FFB6C1', '#F08080', '#DB7093'];
+    for (let i = 1; i <= 3; i++){
+        disco = document.createElement('div');
+        disco.id = i;
+        disco.classList.add('disc');
+        disco.style.width = `${130 - (i * 30)}px`;
+        disco.style.backgroundColor = colors[i-1];
+        towers[0].appendChild(disco);
+    };
+};
 
+const createTower = () => {
+    container = document.createElement('div');
+    container.classList.add('container');
+    document.body.appendChild(container);
+    for (let i = 1; i <= 3; i++){
+        torre = document.createElement('div');
+        torre.id = `torre${i}`;
+        torre.classList.add('tower');
+        container.appendChild(torre);
+    };
+    createDisc();
+};
+createTower();
 
-
-// Parte Jair Início - TORRES
-const main = document.createElement("main");
-main.classList.add("main");
-main.id = 'data-id';
-document.body.appendChild(main);
-
-const haste = document.createElement("div");
-haste.classList.add("haste");
-haste.id = 'haste1';
-haste.appendChild(containerDiscos1);
-main.appendChild(haste);
-
-const poste = document.createElement("div");
-poste.classList.add("poste");
-haste.appendChild(poste);
-
-const haste2 = document.createElement("div");
-haste2.classList.add("haste");
-haste2.id = 'haste2';
-haste2.appendChild(containerDiscos2);
-main.appendChild(haste2);
-
-const poste2 = document.createElement("div");
-poste2.classList.add("poste");
-haste2.appendChild(poste2);
-
-const haste3 = document.createElement("div");
-haste3.classList.add("haste");
-haste3.id = 'haste3';
-haste3.appendChild(containerDiscos3);
-main.appendChild(haste3);
-
-const poste3 = document.createElement("div");
-poste3.classList.add("poste");
-poste3.id = 'final';
-haste3.appendChild(poste3);
-
-// Parte Jair Final
-
-let ultimoDisco;
-let disco;
-let segurando;
-let postes = document.getElementsByClassName('poste');
-console.log(postes);
-for (let i = 0; i < postes.length; i++) {
-    postes[i].addEventListener("click", moverDisco)
-      
-}
-
-function moverDisco(e) {
-    let clique = e.target;
-    if (segurando === true) {
-        escolherTorre(clique);
-    } else {
-        console.log(ultimoDisco);
-        pegarDisco(clique);
+const win = (tower) => {
+    
+    if (tower.childElementCount === 3 && tower.id !== 'torre1') {
+        window.alert('ganhou eba');
+        document.body.innerHTML = "";
+        createTower();
     }
 }
 
-function pegarDisco(clique) {
-    let torreAtual = clique.previousElementSibling;
-    if (torreAtual !== null){
-        segurando = true;
-        disco = clique.previousElementSibling.lastElementChild;
+let holdDisc = false;
+let lastDisc;
+const moveDisc = (e) => {
+    let selectedTower = e.currentTarget;
+
+    if (holdDisc === false && selectedTower.childElementCount !== 0) {
+        lastDisc = selectedTower.lastElementChild;
+        selectedTower.removeChild(lastDisc);
+        holdDisc = true;
+
+    } else if(holdDisc === true && selectedTower.childElementCount === 0) {
+        
+        selectedTower.appendChild(lastDisc);
+        holdDisc = false;
+
+    } else if (holdDisc === true && selectedTower.childElementCount !== 0) {
+
+        if (selectedTower.lastElementChild.id < lastDisc.id){
+
+            selectedTower.appendChild(lastDisc);
+            holdDisc = false;
+            
+        }else{
+
+            holdDisc = true;
+            window.alert('não pode, besta');
+        }
     }
-    console.log(disco);
-}
+    win(selectedTower);
+};
 
-
-function vitoria(clique) {
-    let win = document.getElementById('final');
-    let disc = document.querySelectorAll('disco').length;
-    console.log(disc)
-    if (document.querySelectorAll('#containerDiscos3 div').length === 4){
-        alert('Parabéns! Você Ganhou');
-        location.reload();
+const addEvent = () => {
+    const towers = document.getElementsByClassName('tower');
+    for (let i = 0; i < towers.length; i++) {
+        towers[i].addEventListener('click', moveDisc);
     }
 }
+addEvent();
 
-function escolherTorre(clique) {
-    ultimoDisco = clique.previousElementSibling.lastElementChild;
-    let torreClicada = clique.previousElementSibling;
-    console.log(torreClicada.lastElementChild)
-   if (torreClicada.lastElementChild === null){
-       
-       clique.previousElementSibling.appendChild(disco);
-    } else if (disco.clientWidth < ultimoDisco.clientWidth) {
-        clique.previousElementSibling.appendChild(disco);
-   } 
-    segurando = false;
-    console.log(clique.previousElementSibling.lastElementChild)
-    vitoria(clique);
-}
+
+
 
